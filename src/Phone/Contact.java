@@ -4,6 +4,11 @@ public class Contact {
     private String name;
     private int number;
 
+    public Contact(int number, String name) {
+        this.name = name;
+        this.number = number;
+    }
+
     public int getNumber() {
         return number;
     }
@@ -20,8 +25,4 @@ public class Contact {
         this.name = name;
     }
 
-    public Contact(int number, String name) {
-        this.name = name;
-        this.number = number;
-    }
 }

@@ -12,12 +12,14 @@ public class Menu {
 
     public static void baseMenu() {
 
-        people.add(new Contact(2345, "dflgk"));
-        people.add(new Contact(1247, "fdtghjk,l"));
-        people.add(new Contact(34589, "dcblrf"));
-        people.add(new Contact(234, "gvdsr"));
+        people.add(new Contact(2345, "Abby"));
+        people.add(new Contact(1247, "Bobby"));
+        people.add(new Contact(34589, "Carol"));
+        people.add(new Contact(234, "Dan"));
 
-//        messages.add(new Message("Popolok", ));
+        messages.add(new Message(people.get(3), "Abstract message"));
+        messages.add(new Message(people.get(1), "Big impact"));
+        messages.add(new Message(people.get(0), "Comfort in numbers"));
 
         answer = 0;
         System.out.println("1. Manage contacts");
@@ -51,11 +53,13 @@ public class Menu {
     }
 
     public static void messagesMenu() {
+        Messages messages = new Messages();
         System.out.println("1. Show all messages");
         System.out.println("2. Send a new message");
         System.out.println("3. Go back");
         answer = scanner.nextInt();
         switch (answer) {
+            case 2 -> messages.addItem();
             case 3 -> baseMenu();
             default -> messagesMenu();
         }
