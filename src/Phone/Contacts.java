@@ -56,8 +56,15 @@ public class Contacts  extends ContentsStub {
     }
 
     public void deleteContact() {
-        for (Contact contact: Menu.people) {
-            System.out.println(contact + "Name: " + contact.getName() + ", Number: " + contact.getNumber());
+        Contact man;
+        for (int i = 0; i < Menu.people.size(); i++) {
+             man = Menu.people.get(i);
+            System.out.println((i + 1) + ". Name: "  + man.getName() + ", Number: " + man.getNumber());
         }
+        System.out.println("Number of person you want to delete: ");
+        int number = Menu.scanner.nextInt() - 1;
+        System.out.println("Deleting: " + Menu.people.get(number).getName());
+        Menu.people.remove(number);
+        Menu.contactsMenu();
     }
 }

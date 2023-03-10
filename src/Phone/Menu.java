@@ -8,12 +8,16 @@ public class Menu {
     public static Scanner scanner = new Scanner(System.in);
     private static int answer;
     public static ArrayList<Contact> people = new ArrayList<>();
+    public static ArrayList<Message> messages = new ArrayList<>();
 
     public static void baseMenu() {
 
         people.add(new Contact(2345, "dflgk"));
         people.add(new Contact(1247, "fdtghjk,l"));
         people.add(new Contact(34589, "dcblrf"));
+        people.add(new Contact(234, "gvdsr"));
+
+//        messages.add(new Message("Popolok", ));
 
         answer = 0;
         System.out.println("1. Manage contacts");
@@ -22,7 +26,7 @@ public class Menu {
         answer = scanner.nextInt();
         switch (answer) {
             case 1 -> contactsMenu();
-//            case 2 -> messagesMenu();
+            case 2 -> messagesMenu();
             case 3 -> System.exit(0);
             default -> baseMenu();
         }
@@ -46,7 +50,7 @@ public class Menu {
         }
     }
 
-    public void messagesMenu() {
+    public static void messagesMenu() {
         System.out.println("1. Show all messages");
         System.out.println("2. Send a new message");
         System.out.println("3. Go back");
