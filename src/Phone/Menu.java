@@ -10,6 +10,11 @@ public class Menu {
     public static ArrayList<Contact> people = new ArrayList<>();
 
     public static void baseMenu() {
+
+        people.add(new Contact(2345, "dflgk"));
+        people.add(new Contact(1247, "fdtghjk,l"));
+        people.add(new Contact(34589, "dcblrf"));
+
         answer = 0;
         System.out.println("1. Manage contacts");
         System.out.println("2. Messages");
@@ -35,6 +40,7 @@ public class Menu {
             case 1 -> contacts.showList();
             case 2 -> contacts.addItem();
             case 3 -> contacts.searchContact();
+            case 4 -> contacts.deleteContact();
             case 5 -> baseMenu();
             default -> contactsMenu();
         }
