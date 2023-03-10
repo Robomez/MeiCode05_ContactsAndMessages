@@ -2,14 +2,12 @@ package Phone;
 
 import java.util.Scanner;
 
-public interface ContentsStub {
-    Menu menu = new Menu();
-    Scanner scanner = new Scanner(System.in);
+public abstract class ContentsStub {
 
     //    Show all list method
-    public void showList();
+    public abstract void showList();
 
     //    Add a new item method
-    public void addItem();
+    public abstract void addItem();
 
 }

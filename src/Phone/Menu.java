@@ -31,8 +31,8 @@ public class Menu {
         System.out.println("5. Go back");
         answer = scanner.nextInt();
         switch (answer) {
-            case 1 -> contacts.showList();
-            case 2 -> contacts.addItem();
+//            case 1 -> contacts.showList();
+//            case 2 -> contacts.addItem();
             case 5 -> baseMenu();
             default -> contactsMenu();
         }
