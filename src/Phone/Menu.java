@@ -6,10 +6,9 @@ import java.util.Scanner;
 public class Menu {
     private static Scanner scanner = new Scanner(System.in);
     private static int answer;
-    Contacts contacts = new Contacts();
-    ArrayList<Contact> people = new ArrayList<>();
+    public static ArrayList<Contact> people = new ArrayList<>();
 
-    public void baseMenu() {
+    public static void baseMenu() {
 
         System.out.println("1. Manage contacts");
         System.out.println("2. Messages");
@@ -17,13 +16,14 @@ public class Menu {
         answer = scanner.nextInt();
         switch (answer) {
             case 1 -> contactsMenu();
-            case 2 -> messagesMenu();
+//            case 2 -> messagesMenu();
             case 3 -> System.exit(0);
             default -> baseMenu();
         }
     }
 
-    public void contactsMenu() {
+    public static void contactsMenu() {
+        Contacts contacts = new Contacts();
         System.out.println("1. Show all contacts");
         System.out.println("2. Add a new contact");
         System.out.println("3. Search for a contact");
@@ -31,8 +31,8 @@ public class Menu {
         System.out.println("5. Go back");
         answer = scanner.nextInt();
         switch (answer) {
-//            case 1 -> contacts.showList();
-//            case 2 -> contacts.addItem();
+            case 1 -> contacts.showList();
+            case 2 -> contacts.addItem();
             case 5 -> baseMenu();
             default -> contactsMenu();
         }
