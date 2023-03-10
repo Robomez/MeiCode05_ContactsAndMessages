@@ -22,20 +22,19 @@ public class Contacts  extends ContentsStub {
     @Override
     public void addItem() {
         System.out.println("Name: ");
-        String name = scanner.next();
+        String name = Menu.scanner.next();
         int number = 0;
         while (true) {
             try {
                 System.out.println("Number: ");
-                number = scanner.nextInt();
+                number = Menu.scanner.nextInt();
                 break;
             } catch (InputMismatchException e) {
                 System.out.println("Number must contain digits only");
-                scanner.next();
+                Menu.scanner.next();
             }
         }
         Menu.people.add(new Contact(number, name));
-        Contact thisMan = new Contact(number, name);
         Menu.contactsMenu();
     }
 
