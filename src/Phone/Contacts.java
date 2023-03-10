@@ -39,19 +39,20 @@ public class Contacts  extends ContentsStub {
     }
 
     public void searchContact() {
-//        System.out.println("Type in the name:");
-//        String name = scanner.next();
-//        for (Contact contact: menu.people) {
-//            if (contact.getName().equals(name)) {
-//                System.out.println("Name: " + contact.getName() + ", Number: " + contact.getNumber());
-//            }
-//        }
-//        System.out.println("Go back - press Enter");
-//        try {
-//            System.in.read();
-//        } catch (IOException e) {
-//            throw new RuntimeException(e);
-//        }
-//        menu.contactsMenu();
+        System.out.println("Type in the name:");
+        String name = Menu.scanner.next();
+        for (Contact contact: Menu.people) {
+            if (contact.getName().contains(name)) {
+                System.out.println("Name: " + contact.getName() + ", Number: " + contact.getNumber());
+            }
+        }
+        System.out.println("Go back - press Enter");
+        try {
+            System.in.read();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+        Menu.contactsMenu();
     }
+
 }

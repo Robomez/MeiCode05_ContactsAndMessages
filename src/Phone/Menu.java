@@ -1,6 +1,7 @@
 package Phone;
 
 import java.util.ArrayList;
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -9,7 +10,7 @@ public class Menu {
     public static ArrayList<Contact> people = new ArrayList<>();
 
     public static void baseMenu() {
-
+        answer = 0;
         System.out.println("1. Manage contacts");
         System.out.println("2. Messages");
         System.out.println("3. Quit program");
@@ -33,6 +34,7 @@ public class Menu {
         switch (answer) {
             case 1 -> contacts.showList();
             case 2 -> contacts.addItem();
+            case 3 -> contacts.searchContact();
             case 5 -> baseMenu();
             default -> contactsMenu();
         }
