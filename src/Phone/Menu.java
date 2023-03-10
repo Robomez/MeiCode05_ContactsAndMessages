@@ -1,7 +1,6 @@
 package Phone;
 
 import java.util.ArrayList;
-import java.util.InputMismatchException;
 import java.util.Scanner;
 
 public class Menu {
@@ -17,6 +16,7 @@ public class Menu {
         System.out.println("2. Messages");
         System.out.println("3. Quit program");
         answer = scanner.nextInt();
+//        Todo exception int
         switch (answer) {
             case 1 -> contactsMenu();
             case 2 -> messagesMenu();

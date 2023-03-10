@@ -27,6 +27,7 @@ public class Messages extends ContentsStub{
         }
         System.out.println("Number of person you want to text: ");
         man = Menu.people.get(Menu.scanner.nextInt() - 1);
+//        TODO test number int
         System.out.println(man.getName());
         System.out.println("Message text: ");
         String text = Menu.scanner.next();
