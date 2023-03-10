@@ -12,15 +12,6 @@ public class Menu {
 
     public static void baseMenu() {
 
-        people.add(new Contact(2345, "Abby"));
-        people.add(new Contact(1247, "Bobby"));
-        people.add(new Contact(34589, "Carol"));
-        people.add(new Contact(234, "Dan"));
-
-        messages.add(new Message(people.get(3), "Abstract message"));
-        messages.add(new Message(people.get(1), "Big impact"));
-        messages.add(new Message(people.get(0), "Comfort in numbers"));
-
         answer = 0;
         System.out.println("1. Manage contacts");
         System.out.println("2. Messages");
@@ -59,6 +50,7 @@ public class Menu {
         System.out.println("3. Go back");
         answer = scanner.nextInt();
         switch (answer) {
+            case 1 -> messages.showList();
             case 2 -> messages.addItem();
             case 3 -> baseMenu();
             default -> messagesMenu();
