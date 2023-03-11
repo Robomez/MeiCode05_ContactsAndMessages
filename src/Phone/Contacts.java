@@ -2,19 +2,15 @@ package Phone;
 
 import java.io.IOException;
 import java.util.InputMismatchException;
+import java.util.Scanner;
 
 public class Contacts  extends ContentsStub {
+    Scanner scanner = new Scanner(System.in);
 
     @Override
     public void showList() {
         for (Contact contact: Menu.people) {
-            System.out.println("Name: " + contact.getName() + ", Number: " + contact.getNumber());
-        }
-        System.out.println("Go back - press Enter");
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+            System.out.println("Name: " + contact.getName() + ", Phone: " + contact.getNumber());
         }
         Menu.contactsMenu();
     }
@@ -22,16 +18,16 @@ public class Contacts  extends ContentsStub {
     @Override
     public void addItem() {
         System.out.println("Name: ");
-        String name = Menu.scanner.next();
+        String name = scanner.next();
         int number = 0;
         while (true) {
             try {
-                System.out.println("Number: ");
-                number = Menu.scanner.nextInt();
+                System.out.println("Phone: ");
+                number = scanner.nextInt();
                 break;
             } catch (InputMismatchException e) {
-                System.out.println("Number must contain digits only");
-                Menu.scanner.next();
+                System.out.println("Phone number must contain digits only");
+                scanner.next();
             }
         }
         Menu.people.add(new Contact(number, name));
@@ -40,17 +36,16 @@ public class Contacts  extends ContentsStub {
 
     public void searchContact() {
         System.out.println("Type in the name:");
-        String name = Menu.scanner.next();
+        String name = scanner.next();
+        int foundCount = 0;
         for (Contact contact: Menu.people) {
             if (contact.getName().contains(name)) {
-                System.out.println("Name: " + contact.getName() + ", Number: " + contact.getNumber());
+                System.out.println("Name: " + contact.getName() + ", Phone: " + contact.getNumber());
+                foundCount++;
             }
         }
-        System.out.println("Go back - press Enter");
-        try {
-            System.in.read();
-        } catch (IOException e) {
-            throw new RuntimeException(e);
+        if (foundCount == 0) {
+            System.out.println("Not found");
         }
         Menu.contactsMenu();
     }
@@ -59,11 +54,25 @@ public class Contacts  extends ContentsStub {
         Contact man;
         for (int i = 0; i < Menu.people.size(); i++) {
              man = Menu.people.get(i);
-            System.out.println((i + 1) + ". Name: "  + man.getName() + ", Number: " + man.getNumber());
+            System.out.println((i + 1) + ". Name: "  + man.getName() + ", Phone: " + man.getNumber());
         }
-        System.out.println("Number of person you want to delete: ");
-        int number = Menu.scanner.nextInt() - 1;
-        System.out.println("Deleting: " + Menu.people.get(number).getName());
+        int number = 0;
+        while (true) {
+            try {
+                System.out.println("Number of person you want to delete: ");
+                number = scanner.nextInt() - 1;
+                break;
+            } catch (InputMismatchException e) {
+                System.out.println("Number must contain digits only");
+                scanner.next();
+            }
+        }
+        try {
+            System.out.println("Deleting: " + Menu.people.get(number).getName());
+        } catch (IndexOutOfBoundsException e) {
+                System.out.println("You don't have a contact with that number");
+                deleteContact();
+        }
         Menu.people.remove(number);
         Menu.contactsMenu();
     }
