@@ -1,6 +1,5 @@
 package Phone;
 
-import java.io.IOException;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
@@ -19,7 +18,7 @@ public class Contacts  extends ContentsStub {
     public void addItem() {
         System.out.println("Name: ");
         String name = scanner.next();
-        int number = 0;
+        int number;
         while (true) {
             try {
                 System.out.println("Phone: ");
@@ -52,11 +51,15 @@ public class Contacts  extends ContentsStub {
 
     public void deleteContact() {
         Contact man;
+        if (Menu.people.size() == 0) {
+            System.out.println("No contacts");
+            Menu.contactsMenu();
+        }
         for (int i = 0; i < Menu.people.size(); i++) {
              man = Menu.people.get(i);
             System.out.println((i + 1) + ". Name: "  + man.getName() + ", Phone: " + man.getNumber());
         }
-        int number = 0;
+        int number;
         while (true) {
             try {
                 System.out.println("Number of person you want to delete: ");
